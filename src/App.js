@@ -3,7 +3,9 @@ import Navi from "./Navi";
 import CategoryList from "./CategoryList";
 import ProductList from "./ProductList";
 import { Container, Row, Col } from "reactstrap";
-import alertify from "alertifyjs"
+import alertify from "alertifyjs";
+import {Switch,Route} from "react-router-dom"
+import CartList from "./CartList";
 
 export default class App extends Component {
   state = { currentCategory: "", products: [], cart: [] };
@@ -57,6 +59,11 @@ export default class App extends Component {
             </Col>
 
             <Col xs="9">
+              <Switch>
+                <Route exact path="/cart" component={CartList}></Route>
+                <Route></Route>
+                <Route></Route>
+              </Switch>
               <ProductList
                 addToCart={this.addToCart}
                 products={this.state.products}
